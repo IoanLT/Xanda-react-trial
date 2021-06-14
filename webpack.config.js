@@ -2,21 +2,21 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-	devtool: 'eval',
+	devtool: "eval",
 	entry: [
-		'react-hot-loader/patch',
-		'webpack/hot/dev-server',
-		'webpack-hot-middleware/client',
-		'./js/index',
-		'./sass/layout.scss',
+		"react-hot-loader/patch",
+		"webpack/hot/dev-server",
+		"webpack-hot-middleware/client",
+		"./js/index",
+		"./sass/layout.scss",
 	],
 	output: {
-		path: path.join(__dirname, 'js'),
-		filename: 'bundle.js',
-		publicPath: '/js',
+		path: path.join(__dirname, "js"),
+		filename: "bundle.js",
+		publicPath: "/js",
 	},
 	resolve: {
-		extensions: ['.js', '.jsx'],
+		extensions: [".js", ".jsx"],
 	},
 	plugins: [
 		/**
@@ -36,7 +36,7 @@ module.exports = {
 		 * Here, we use it to specify a development build.
 		 */
 		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify('development'),
+			"process.env.NODE_ENV": JSON.stringify("development"),
 		}),
 	],
 	module: {
@@ -44,13 +44,17 @@ module.exports = {
 			{
 				test: /\.(js|jsx)$/,
 				exclude: [/node_modules/],
-				loader: 'babel-loader',
-				include: path.join(__dirname, 'js'),
+				loader: "babel-loader",
+				include: path.join(__dirname, "js"),
 			},
 			{
 				test: /\.scss?/,
-				loaders: ['style-loader', 'css-loader', 'sass-loader'],
-				include: path.join(__dirname, 'sass'),
+				loaders: ["style-loader", "css-loader", "sass-loader"],
+				include: path.join(__dirname, "sass"),
+			},
+			{
+				test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+				loader: "url-loader?limit=100000",
 			},
 		],
 	},
