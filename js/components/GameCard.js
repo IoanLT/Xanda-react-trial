@@ -1,5 +1,6 @@
 import React from "react";
-import coins from '../../assets/coins.png'
+import coins from "../../assets/coins.png";
+import controller from '../../assets/controller.png';
 
 const GameCard = ({ id, image, title, description, price }) => {
 	return (
@@ -7,17 +8,16 @@ const GameCard = ({ id, image, title, description, price }) => {
 			<div>
 				<img src={image} alt={title} />
 			</div>
-			<div>
+			<div className="card-description">
 				<h4>{title}</h4>
 				<p>{description}</p>
-				<p>
-					<span>
-						<img src={`${coins}`} alt="coins" />
-					</span>
-          {price} Gil
-				</p>
+				<div className="coin-price">
+					<img src={`${coins}`} alt="coins" />
+					<p>{price} Gil</p>
+				</div>
 				<button>Add to Basket</button>
 			</div>
+			<img className="controller-img" src={controller} alt="controller image" />
 		</div>
 	);
 };
