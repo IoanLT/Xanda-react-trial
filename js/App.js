@@ -1,10 +1,13 @@
 import React from "react";
+import Header from "./components/Header";
 import GamesPage from "./components/GamesPage";
 
 const App = () => {
 	return (
 		<div>
-			<GamesPage />      
+      <Header />
+			<GamesPage />  
+          
 		</div>
 	);
 };

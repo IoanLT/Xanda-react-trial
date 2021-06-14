@@ -42,6 +42,7 @@ const gamesData = [
 	},
 ];
 
+
 const GamesPage = () => {
 	const [data] = useState(gamesData);
 	console.log(data);

@@ -14,6 +14,7 @@ const GameCard = ({ id, image, title, description, price }) => {
 					<span>
 						<img src={`${coins}`} alt="coins" />
 					</span>
+          {price} Gil
 				</p>
 				<button>Add to Basket</button>
 			</div>
