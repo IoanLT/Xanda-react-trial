@@ -5,6 +5,7 @@ import game1 from "../../assets/game1.jpg";
 import game2 from "../../assets/game2.jpg";
 import game3 from "../../assets/game3.jpg";
 import game4 from "../../assets/game4.jpg";
+import logo from "../../assets/logo.png";
 
 
 // This is the relevant data for each game. This would normally come back from an API
@@ -48,7 +49,11 @@ const GamesPage = () => {
 	console.log(data);
 
 	return (
-		<div>
+		<main>
+			<div className="logo">
+				<img src={`${logo}`} alt="game logo" />
+			</div>
+		<div className="grid-games-wrapper">
 			{gamesData.map((game) => (
 				<GameCard
 					id={game.id}
@@ -60,6 +65,7 @@ const GamesPage = () => {
 				/>
 			))}
 		</div>
+		</main>
 	);
 };
 
