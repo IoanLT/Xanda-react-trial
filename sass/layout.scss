@@ -6,7 +6,7 @@
 
 .xanda-react-trial {
 	text-align: center;
-	padding: 20px;
+	// padding: 20px;
 	font-family: 'Helvetica';
 
 	h1 {
@@ -15,6 +15,9 @@
 	}
 }
 
+.main-wrapper {
+	position: relative;
+}
 
 @import "./header";
 @import "./basket";

@@ -1,18 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import GamesPage from "./components/GamesPage";
 import Basket from "./components/Basket";
+// Importing images
+import game1 from "../assets/game1.jpg";
+import game2 from "../assets/game2.jpg";
+import game3 from "../assets/game3.jpg";
+import game4 from "../assets/game4.jpg";
+
+// This is the relevant data for each game. This would normally come back from an API
+const gamesData = [
+	{
+		id: 1,
+		image: `${game1}`,
+		title: "Star Wars: Battlefront",
+		description: "Immerse Yourself in the Ultimate Star Wars Experience",
+		price: 300,
+	},
+	{
+		id: 2,
+		image: `${game2}`,
+		title: "Dying Light",
+		description:
+			"Dying Light is an open world first person survival horror action-adventure video game developed by Techland",
+		price: 500,
+	},
+	{
+		id: 3,
+		image: `${game3}`,
+		title: "Bloodborne",
+		description:
+			"Bloodborne is an action role-playing video game developed by FromSoftware",
+		price: 9999,
+	},
+	{
+		id: 4,
+		image: `${game4}`,
+		title: "Evolve",
+		description:
+			"Evolve is a first-person shooter video game developed by Turtle Rock Studios",
+		price: 150,
+	},
+];
 
 const App = () => {
-	return (
-		<div>
-			<Header />
-			<div className="main-content">
-				<GamesPage />
-				<Basket />
+	const [data, setData] = useState(gamesData);
+	const [addToBasket, setAddToBasket] = useState(false);
+	const [favorites, setFavorites] = useState([]);
+	// const [disabled, setDisabled] = useState(false);
+
+  	return (
+			<div className="main-wrapper">
+				<Header />
+				<div className="games-content">
+					<GamesPage
+						data={data}
+						setData={setData}
+						addToBasket={addToBasket}
+						setAddToBasket={setAddToBasket}
+						favorites={favorites}
+						setFavorites={setFavorites}
+					/>
+				</div>
+				<Basket data={data} addToBasket={addToBasket} />
 			</div>
-		</div>
-	);
+		);
 };
 
 export default App;

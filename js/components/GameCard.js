@@ -1,10 +1,39 @@
 import React from "react";
 import coins from "../../assets/coins.png";
-import controller from '../../assets/controller.png';
+import controller from "../../assets/controller.png";
 
-const GameCard = ({ id, image, title, description, price }) => {
+const GameCard = ({
+	index,
+	id,
+	image,
+	title,
+	description,
+	price,
+	addToBasket,
+	setAddToBasket,
+	data,
+	setData,
+	favorites,
+	setFavorites,
+}) => {
+	const handleAddToBasket = (e) => {
+		let selectedGame = data[e.target.id];
+
+		if (favorites.find((duplicate) => duplicate === selectedGame)) {
+			alert("you already have selected this game");
+		} else {
+			let myFavorites = [...favorites];
+			myFavorites.push(selectedGame);
+
+			setFavorites(myFavorites);
+		}
+	};
+
 	return (
-		<div className="game-card">
+		<div
+			className="game-card"
+			// style={disabled ? { pointerEvents: "none", opacity: "0.4" } : {}}
+		>
 			<div>
 				<img src={image} alt={title} />
 			</div>
@@ -15,7 +44,9 @@ const GameCard = ({ id, image, title, description, price }) => {
 					<img src={`${coins}`} alt="coins" />
 					<p>{price} Gil</p>
 				</div>
-				<button>Add to Basket</button>
+				<button id={index} onClick={handleAddToBasket}>
+					Add to Basket
+				</button>
 			</div>
 			<img className="controller-img" src={controller} alt="controller image" />
 		</div>
