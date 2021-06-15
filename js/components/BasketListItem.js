@@ -1,24 +1,30 @@
-import React from 'react'
+import React from "react";
+import bin from "../../assets/bin.png";
+import coins from "../../assets/coins.png";
 
-const handleBasket = () => {
-	setAddToBasket(true);
+const BasketListItem = ({ addToBasket, index }) => {
+	console.log(addToBasket);
+	return (
+		<section className="basket-main-section">
+			<div className="basket-list-item">
+				<div className="list-item-img">
+					<img src={addToBasket[index].image} alt="" />
+				</div>
+				<div className="list-item-title">
+					<h5>{addToBasket[index].title}</h5>
+					<div className="list-item-price">
+						<img src={coins} alt="coins thumbnail" />
+						<p>{addToBasket[index].price} Gil</p>
+					</div>
+				</div>
+				<button>
+					<img src={bin} alt="bin thumbnail" />
+				</button>
+			</div>
 
-	const newList = data.filter((item) => item.id === id);
-
-	// setData(newList[0]);
-
-	if (newList[0].id === id) {
-		// setDisabled(true);
-		setDisabled(!disabled);
-	}
+			<hr />			
+		</section>
+	);
 };
 
-const BasketListItem = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default BasketListItem
+export default BasketListItem;

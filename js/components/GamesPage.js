@@ -7,9 +7,7 @@ const GamesPage = ({
 	data,
 	setData,
 	addToBasket,
-	setAddToBasket,
-	favorites,
-	setFavorites,
+	setAddToBasket,	
 }) => {
 	return (
 		<main>
@@ -29,9 +27,7 @@ const GamesPage = ({
 						addToBasket={addToBasket}
 						setAddToBasket={setAddToBasket}
 						data={data}
-						setData={setData}
-						favorites={favorites}
-						setFavorites={setFavorites}
+						setData={setData}						
 					/>
 				))}
 			</div>

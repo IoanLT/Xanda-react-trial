@@ -45,8 +45,8 @@ const gamesData = [
 
 const App = () => {
 	const [data, setData] = useState(gamesData);
-	const [addToBasket, setAddToBasket] = useState(false);
-	const [favorites, setFavorites] = useState([]);
+	const [addToBasket, setAddToBasket] = useState([]);
+	// const [favorites, setFavorites] = useState([]);
 	// const [disabled, setDisabled] = useState(false);
 
   	return (
@@ -58,11 +58,12 @@ const App = () => {
 						setData={setData}
 						addToBasket={addToBasket}
 						setAddToBasket={setAddToBasket}
-						favorites={favorites}
-						setFavorites={setFavorites}
 					/>
 				</div>
-				<Basket data={data} addToBasket={addToBasket} />
+				<Basket					
+					addToBasket={addToBasket}
+					setAddToBasket={setAddToBasket}
+				/>
 			</div>
 		);
 };

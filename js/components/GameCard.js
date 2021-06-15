@@ -12,20 +12,18 @@ const GameCard = ({
 	addToBasket,
 	setAddToBasket,
 	data,
-	setData,
-	favorites,
-	setFavorites,
+	setData,	
 }) => {
 	const handleAddToBasket = (e) => {
 		let selectedGame = data[e.target.id];
 
-		if (favorites.find((duplicate) => duplicate === selectedGame)) {
+		if (addToBasket.find((duplicate) => duplicate === selectedGame)) {
 			alert("you already have selected this game");
 		} else {
-			let myFavorites = [...favorites];
+			let myFavorites = [...addToBasket];
 			myFavorites.push(selectedGame);
 
-			setFavorites(myFavorites);
+			setAddToBasket(myFavorites);
 		}
 	};
 
