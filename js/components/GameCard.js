@@ -2,8 +2,8 @@ import React from "react";
 import coins from "../../assets/coins.png";
 import controller from "../../assets/controller.png";
 
-const GameCard = ({ product, addToBasket, setAddToBasket, handleAddToBasket }) => {
-	const { id, image, title, description, price } = product;
+const GameCard = ({ product, handleAddToBasket }) => {
+	const { image, title, description, price } = product;
 
 	
 	return (

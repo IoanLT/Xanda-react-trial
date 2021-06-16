@@ -79,6 +79,8 @@ const App = () => {
 	return (
 		<div className="main-wrapper">
 			<Header />
+
+			{/* Using conditional rendering to display the products page */}
 			{page === pageProducts && (
 				<div>
 					<div className="games-content">
@@ -98,6 +100,7 @@ const App = () => {
 				</div>
 			)}
 
+			{/* Using conditional rendering to display the checkout page */}
 			{page === pageCart && (
 				<Checkout
 					addToBasket={addToBasket}
