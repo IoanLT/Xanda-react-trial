@@ -8,8 +8,7 @@ const GamesPage = ({
 	setData,
 	addToBasket,
 	setAddToBasket,
-	removed,
-	setRemoved,
+	
 }) => {
 	return (
 		<main>
@@ -25,8 +24,7 @@ const GamesPage = ({
 						addToBasket={addToBasket}
 						setAddToBasket={setAddToBasket}
 						data={data}
-						setData={setData}
-						setRemoved={setRemoved}
+						setData={setData}						
 					/>
 				))}
 			</div>

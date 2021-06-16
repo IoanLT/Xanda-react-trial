@@ -3,14 +3,11 @@ import coins from "../../assets/coins.png";
 import controller from "../../assets/controller.png";
 
 const GameCard = ({
-	game,
-	index,
+	game,	
 	addToBasket,
-	setAddToBasket,
-	data,
-	setRemoved,
+	setAddToBasket,	
 }) => {
-	const { id, image, title, description, price } = game;
+	const { image, title, description, price } = game;
 
 	const handleAddToBasket = (game) => {
 		// if (addToBasket.find((duplicate) => duplicate === selectedGame)) {
@@ -35,7 +32,7 @@ const GameCard = ({
 					<img src={`${coins}`} alt="coins" />
 					<p>{price} Gil</p>
 				</div>
-				<button id={index} onClick={() => handleAddToBasket(game)}>
+				<button onClick={() => handleAddToBasket(game)}>
 					Add to Basket
 				</button>
 			</div>

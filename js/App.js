@@ -51,7 +51,8 @@ const App = () => {
 	const [data, setData] = useState(gamesData);
 	const [addToBasket, setAddToBasket] = useState([]);
 	const [page, setPage] = useState(pageProducts);
-	const [removed, setRemoved] = useState(true);
+	// const [removed, setRemoved] = useState(true);
+
 
 	const goToCheckout = () => {
 		if (addToBasket.length > 0) {
@@ -62,6 +63,7 @@ const App = () => {
 	const goToProducts = () => {
 		setPage(pageProducts);
 	};
+	
 
 	return (
 		<div className="main-wrapper">
@@ -73,22 +75,18 @@ const App = () => {
 							data={data}
 							setData={setData}
 							addToBasket={addToBasket}
-							setAddToBasket={setAddToBasket}
-							removed={removed}
-							setRemoved={setRemoved}
+							setAddToBasket={setAddToBasket}							
 						/>
 					</div>
 					<Basket
 						addToBasket={addToBasket}
-						setAddToBasket={setAddToBasket}
-						removed={removed}
-						setRemoved={setRemoved}
+						setAddToBasket={setAddToBasket}						
 						goToCheckout={goToCheckout}
 					/>
 				</div>
 			)}
 
-			{page === pageCart && <Checkout goToProducts={goToProducts} />}
+			{page === pageCart && (<Checkout goToProducts={goToProducts} />)}
 		</div>
 	);
 };
