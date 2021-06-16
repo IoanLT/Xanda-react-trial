@@ -1,9 +1,9 @@
 import React from "react";
 import BasketListItem from "./BasketListItem";
 
-let price = 0;
-
 const Basket = ({ addToBasket, goToCheckout, removeFromCart }) => {
+	let price = 0;
+	
 	return (
 		<div className="basket-wrapper">
 			<h2>Basket</h2>

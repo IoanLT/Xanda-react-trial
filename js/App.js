@@ -50,8 +50,7 @@ const pageCart = "checkout";
 const App = () => {
 	const [data, setData] = useState(gamesData);
 	const [addToBasket, setAddToBasket] = useState([]);
-	const [page, setPage] = useState(pageProducts);
-	// const [removed, setRemoved] = useState(true);
+	const [page, setPage] = useState(pageProducts);	
 
 	const goToCheckout = () => {
 		if (addToBasket.length > 0) {
