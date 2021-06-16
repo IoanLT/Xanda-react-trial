@@ -8,7 +8,7 @@ const GamesPage = ({
 	setData,
 	addToBasket,
 	setAddToBasket,
-	
+	handleAddToBasket,
 }) => {
 	return (
 		<main>
@@ -16,15 +16,16 @@ const GamesPage = ({
 				<img src={`${logo}`} alt="game logo" />
 			</div>
 			<div className="grid-games-wrapper">
-				{data.map((game, index) => (
+				{data.map((product, index) => (
 					<GameCard
-						game={game}
+						product={product}
 						index={index}
-						key={game.id}
+						key={product.id}
 						addToBasket={addToBasket}
 						setAddToBasket={setAddToBasket}
 						data={data}
-						setData={setData}						
+						setData={setData}
+						handleAddToBasket={handleAddToBasket}
 					/>
 				))}
 			</div>

@@ -64,10 +64,10 @@ const App = () => {
 	};
 
 	const handleAddToBasket = (productToAdd) => {		
-		if (addToBasket.find((duplicate) => duplicate === productToAdd)) {
+		if (addToBasket.find((product) => product === productToAdd)) {
 			alert("you already have selected this product");
 		} else {
-			setAddToBasket([...addToBasket, { ...product }]);
+			setAddToBasket([...addToBasket, productToAdd]);
 		}
 	};
 
