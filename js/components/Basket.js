@@ -27,10 +27,12 @@ const Basket = ({ addToBasket, goToCheckout, removeFromCart }) => {
 				<h5>There are no items in the basket</h5>
 			)}
 
-			<div className="basket-total">
-				<h4>Total</h4>
-				<h4>{price}</h4>
-			</div>
+			{addToBasket.length > 0 && (
+				<div className="basket-total">
+					<h4>Total</h4>
+					<h4>{price}</h4>
+				</div>
+			)}
 
 			<button onClick={goToCheckout}>Continue</button>
 		</div>

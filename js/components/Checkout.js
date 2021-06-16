@@ -3,8 +3,9 @@ import BasketListItem from './BasketListItem';
 
 const Checkout = ({ addToBasket, goToProducts, removeFromCart }) => {
 	return (
-		<div>
-			<h1>This is the Checkout page</h1>
+		<div className="checkout-wrapper">
+			<h2>This is the Checkout page</h2>
+			<button className="go-back-btn" onClick={goToProducts}>Go back</button>
 			{addToBasket.length > 0 ? (
 				addToBasket.map((game, index) => {
 					return (
@@ -19,7 +20,13 @@ const Checkout = ({ addToBasket, goToProducts, removeFromCart }) => {
 			) : (
 				<h5>There are no items in the basket</h5>
 			)}
-			<button onClick={goToProducts}>Go back</button>
+
+			{addToBasket.length > 0 && (
+				<div className="basket-total">
+					<h4>Total</h4>
+					{/* <h4>{price}</h4> */}
+				</div>
+			)}
 		</div>
 	);
 };
