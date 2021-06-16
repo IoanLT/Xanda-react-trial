@@ -3,22 +3,23 @@ import BasketListItem from "./BasketListItem";
 
 let price = 0;
 
-const Basket = ({ addToBasket, goToCheckout }) => {
+const Basket = ({ addToBasket, goToCheckout, removeFromCart }) => {
 	return (
 		<div className="basket-wrapper">
 			<h2>Basket</h2>
 			{/* Here we display the list items if it has been added to the basket and 
 			calculate the total price. Else, we display that there are not items in the basket */}
 			{addToBasket.length > 0 ? (
-				addToBasket.map((game, index) => {
-					price += game.price;
+				addToBasket.map((product, index) => {
+					price += product.price;
 
 					return (
 						<BasketListItem
-							key={game.id}
+							product={product}
+							key={product.id}
 							index={index}
 							addToBasket={addToBasket}
-							
+							removeFromCart={removeFromCart}
 						/>
 					);
 				})

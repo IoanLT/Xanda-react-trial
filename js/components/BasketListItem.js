@@ -2,8 +2,7 @@ import React from "react";
 import bin from "../../assets/bin.png";
 import coins from "../../assets/coins.png";
 
-const BasketListItem = ({ addToBasket, index}) => {
-	
+const BasketListItem = ({ addToBasket, index, removeFromCart, product }) => {
 	return (
 		<section className="basket-main-section">
 			<div>
@@ -18,7 +17,7 @@ const BasketListItem = ({ addToBasket, index}) => {
 							<p>{addToBasket[index].price} Gil</p>
 						</div>
 					</div>
-					<button id={index}>
+					<button id={index} onClick={() => removeFromCart(product)}>
 						<img src={bin} alt="bin thumbnail" />
 					</button>
 				</div>

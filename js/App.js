@@ -53,7 +53,6 @@ const App = () => {
 	const [page, setPage] = useState(pageProducts);
 	// const [removed, setRemoved] = useState(true);
 
-
 	const goToCheckout = () => {
 		if (addToBasket.length > 0) {
 			setPage(pageCart);
@@ -63,7 +62,20 @@ const App = () => {
 	const goToProducts = () => {
 		setPage(pageProducts);
 	};
-	
+
+	const handleAddToBasket = (productToAdd) => {		
+		if (addToBasket.find((duplicate) => duplicate === productToAdd)) {
+			alert("you already have selected this product");
+		} else {
+			setAddToBasket([...addToBasket, { ...product }]);
+		}
+	};
+
+	const removeFromCart = (productToRemove) => {
+		setAddToBasket(
+			addToBasket.filter((product) => product !== productToRemove)
+		);
+	};
 
 	return (
 		<div className="main-wrapper">
@@ -75,18 +87,26 @@ const App = () => {
 							data={data}
 							setData={setData}
 							addToBasket={addToBasket}
-							setAddToBasket={setAddToBasket}							
+							setAddToBasket={setAddToBasket}
+							handleAddToBasket={handleAddToBasket}
 						/>
 					</div>
 					<Basket
 						addToBasket={addToBasket}
-						setAddToBasket={setAddToBasket}						
 						goToCheckout={goToCheckout}
+						removeFromCart={removeFromCart}
 					/>
 				</div>
 			)}
 
-			{page === pageCart && (<Checkout goToProducts={goToProducts} />)}
+			{page === pageCart && (
+				<Checkout
+					addToBasket={addToBasket}
+					setAddToBasket={setAddToBasket}
+					goToProducts={goToProducts}
+					removeFromCart={removeFromCart}
+				/>
+			)}
 		</div>
 	);
 };
