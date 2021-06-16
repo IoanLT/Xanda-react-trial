@@ -7,7 +7,9 @@ const GamesPage = ({
 	data,
 	setData,
 	addToBasket,
-	setAddToBasket,	
+	setAddToBasket,
+	removed,
+	setRemoved,
 }) => {
 	return (
 		<main>
@@ -17,17 +19,14 @@ const GamesPage = ({
 			<div className="grid-games-wrapper">
 				{data.map((game, index) => (
 					<GameCard
+						game={game}
 						index={index}
-						id={game.id}
 						key={game.id}
-						image={game.image}
-						title={game.title}
-						description={game.description}
-						price={game.price}
 						addToBasket={addToBasket}
 						setAddToBasket={setAddToBasket}
 						data={data}
-						setData={setData}						
+						setData={setData}
+						setRemoved={setRemoved}
 					/>
 				))}
 			</div>

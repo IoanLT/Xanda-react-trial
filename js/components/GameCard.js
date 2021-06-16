@@ -3,17 +3,15 @@ import coins from "../../assets/coins.png";
 import controller from "../../assets/controller.png";
 
 const GameCard = ({
+	game,
 	index,
-	id,
-	image,
-	title,
-	description,
-	price,
 	addToBasket,
 	setAddToBasket,
 	data,
-	setData,	
+	setRemoved,
 }) => {
+	const {id, image, title, description, price} = game;
+
 	const handleAddToBasket = (e) => {
 		let selectedGame = data[e.target.id];
 
@@ -24,6 +22,7 @@ const GameCard = ({
 			myFavorites.push(selectedGame);
 
 			setAddToBasket(myFavorites);
+			setRemoved(false);
 		}
 	};
 
