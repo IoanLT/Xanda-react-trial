@@ -7,10 +7,11 @@ const Checkout = ({ addToBasket, goToProducts, removeFromCart }) => {
 			<h2>This is the Checkout page</h2>
 			<button className="go-back-btn" onClick={goToProducts}>Go back</button>
 			{addToBasket.length > 0 ? (
-				addToBasket.map((game, index) => {
+				addToBasket.map((product, index) => {
 					return (
 						<BasketListItem
-							key={game.id}
+							product={product}
+							key={product.id}
 							index={index}
 							addToBasket={addToBasket}
 							removeFromCart={removeFromCart}
