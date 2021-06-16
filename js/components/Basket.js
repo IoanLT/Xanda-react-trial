@@ -3,7 +3,7 @@ import BasketListItem from "./BasketListItem";
 
 let price = 0;
 
-const Basket = ({ addToBasket, removed, setRemoved }) => {	
+const Basket = ({ addToBasket, removed, setRemoved, goToCheckout }) => {	
 
 	return (
 		<div className="basket-wrapper">
@@ -36,7 +36,7 @@ const Basket = ({ addToBasket, removed, setRemoved }) => {
 				</div>
 			)}
 
-			<button>Continue</button>
+			<button onClick={goToCheckout}>Continue</button>
 		</div>
 	);
 };

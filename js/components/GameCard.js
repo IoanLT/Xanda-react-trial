@@ -10,20 +10,14 @@ const GameCard = ({
 	data,
 	setRemoved,
 }) => {
-	const {id, image, title, description, price} = game;
+	const { id, image, title, description, price } = game;
 
-	const handleAddToBasket = (e) => {
-		let selectedGame = data[e.target.id];
-
-		if (addToBasket.find((duplicate) => duplicate === selectedGame)) {
-			alert("you already have selected this game");
-		} else {
-			let myFavorites = [...addToBasket];
-			myFavorites.push(selectedGame);
-
-			setAddToBasket(myFavorites);
-			setRemoved(false);
-		}
+	const handleAddToBasket = (game) => {
+		// if (addToBasket.find((duplicate) => duplicate === selectedGame)) {
+		// 	alert("you already have selected this game");
+		// }
+		setAddToBasket([...addToBasket, { ...game }]);
+		console.log("we are in basket");
 	};
 
 	return (
@@ -41,7 +35,7 @@ const GameCard = ({
 					<img src={`${coins}`} alt="coins" />
 					<p>{price} Gil</p>
 				</div>
-				<button id={index} onClick={handleAddToBasket}>
+				<button id={index} onClick={() => handleAddToBasket(game)}>
 					Add to Basket
 				</button>
 			</div>
